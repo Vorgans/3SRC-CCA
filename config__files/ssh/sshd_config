@@ -1,0 +1,50 @@
+#
+#
+#  _________ _________ ___ ___           _________  ________    _______  ___________.___  ________ 
+# /   _____//   _____//   |   \          \_   ___ \ \_____  \   \      \ \_   _____/|   |/  _____/ 
+# \_____  \ \_____  \/    ~    \  ______ /    \  \/  /   |   \  /   |   \ |    __)  |   /   \  ___ 
+# /        \/        \    Y    / /_____/ \     \____/    |    \/    |    \|     \   |   \    \_\  \
+#/_______  /_______  /\___|_  /           \______  /\_______  /\____|__  /\___  /   |___|\______  /
+#        \/        \/       \/                   \/         \/         \/     \/                \/ 
+#
+# by Walid ETTAYEB 
+
+Include /etc/ssh/sshd_config.d/*.conf
+
+Port 5556
+
+# Logging
+#SyslogFacility AUTH
+#LogLevel INFO
+
+# Authentication:
+
+PermitRootLogin no
+MaxSessions 5
+PubkeyAuthentication yes
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+#PermitEmptyPasswords no
+
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+KbdInteractiveAuthentication no
+UsePAM yes
+
+# Security Hardening 
+
+AllowTcpForwarding no
+X11Forwarding no
+PrintMotd no
+PermitTunnel no
+
+
+# no default banner path
+Banner /etc/Banner
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# override default of no subsystems
+Subsystem	sftp	/usr/lib/openssh/sftp-server
