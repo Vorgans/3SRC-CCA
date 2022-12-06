@@ -29,16 +29,6 @@ read key
 
 echo $key >> tmp_authorized_keys.txt
 
-cat tmp_authorized_keys.txt >> ~/.ssh/authorized_keys && echo "Clé ssh ajouté \n"
-rm tmp_authorized_keys.txt && echo "Fichier temporaire de clé supprimé \n"
-service sshd restart && echo "Opération effectuée.... \n"
-
-printf "Voulez-vous vous deconnecter ? (y/yes/n/no)"
-
-read answer
-
-if [[ "$answer" = yes || "$answer" = y  ]]; then
-    echo "exit" && logout
-else
-    exit 0
-fi
+cat tmp_authorized_keys.txt >> ~/.ssh/authorized_keys && echo -e "\e[1;33mClé ssh ajouté\e[0m \n"
+rm tmp_authorized_keys.txt && echo -e "\e[1;31mFichier temporaire de clé supprimé\e[0m \n"
+service sshd restart && echo -e "\e[1;32mOpération effectuée....\e[0m \n"
