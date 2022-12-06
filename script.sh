@@ -38,7 +38,7 @@ printf "Voulez-vous vous deconnecter ? (y/yes/n/no)"
 read answer
 
 if [[ "$answer" = yes || "$answer" = y  ]]; then
-    exit
+    echo "exit" && logout
 else
     exit 0
 fi
