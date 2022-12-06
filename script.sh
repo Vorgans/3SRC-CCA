@@ -27,8 +27,8 @@ printf "Entrez la clé public de l'utilisateur : \n"
 
 read key
 
-echo $key >> tmp_authorized_keys.txt
+echo $key
 
-cat tmp_authorized_keys.txt >> ~/.ssh/authorized_keys && echo -e "\e[1;33mClé ssh ajouté\e[0m \n"
-rm tmp_authorized_keys.txt && echo -e "\e[1;31mFichier temporaire de clé supprimé\e[0m \n"
+$key >> ~/.ssh/authorized_keys && echo -e "\e[1;33mClé ssh ajouté\e[0m \n"
+sleep 1
 service sshd restart && echo -e "\e[1;32mOpération effectuée....\e[0m \n"
